@@ -21,7 +21,7 @@ def auto_canny(image, sigma=0.33):
 
 def main():
     print(cv2.__version__)
-    imageDir = pathlib.Path(__file__).parent.parent.joinpath('images', 'resized')  # Specify your path here
+    imageDir = pathlib.Path(__file__).resolve().parent.parent.joinpath('images', 'resized')  # Specify your path here
     image_path_list = []
     valid_image_extensions = [".jpg", ".jpeg", ".png"]  # Specify your valid extensions here
     valid_image_extensions = [item.lower() for item in valid_image_extensions]
@@ -33,7 +33,7 @@ def main():
         image_path_list.append(os.path.join(imageDir, file))
 
     for imagePath in image_path_list:
-        print(imagePath)
+        # print(imagePath)
         # read the img
         img = cv2.imread(imagePath, 0)
         if img is None:
@@ -47,6 +47,7 @@ def main():
 
         # Save output image in the edges folder (requires folder named resized!)
         path = imagePath.replace('resized', 'edges')
+        print(path)
         cv2.imwrite(path, newEdges)
 
 

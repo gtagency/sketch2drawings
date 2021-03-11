@@ -4,6 +4,7 @@ from __future__ import print_function
 
 import random
 import argparse
+import pathlib
 import glob
 import os
 
@@ -18,7 +19,8 @@ a = parser.parse_args()
 def main():
     random.seed(0)
 
-    files = glob.glob(os.path.join(a.dir, "*.png"))
+    files = glob.glob(os.path.join(pathlib.Path(__file__).resolve().parent.parent.joinpath('images', 'edges'), "*.png"))
+    print(pathlib.Path(__file__).resolve().parent.parent.joinpath('images', 'edges'))
     files.sort()
 
     assignments = []

@@ -12,15 +12,20 @@ Repo for the sketch2drawings project group for spring 2021
 <hr>
 
 ### After Downloading Data
-Create a folder called original under images so that the directory looks like this
+Create a folder called original and edges under images so that the directory looks like this
 ```
 .
 ├── README.md
 ├── docker
 │        └── Dockerfile
 ├── images
-│        └── Original
+│        └── original
+│        └── edges
+│        └── resized
+│        └── combined
 ```
+
+Move the images (only, no folders) to images/original
 
 We will
 1. Resize all images into 256 x 256
@@ -32,6 +37,13 @@ We will
 Install all the dependencies
 ```bash
 pip3 install -r requirements.txt
+```
+
+Warning: Python version must be at max 3.6! I spent too much time trying to do with Python 3.8 `D:`
+
+While I did it manually with Conda, you could probably try this after creating a virtual environment
+```bash
+conda install --file requirements.txt
 ```
 
 ### Resizing Operation
