@@ -65,7 +65,7 @@ python edge_detection.py
 
 ### Combine Operation
 ```bash
-python preprocessing/process.py --input_dir images/resized --b_dir images/blank --operation combine --output_dir images/combined
+python preprocessing/process.py --input_dir images/resized --b_dir images/edges --operation combine --output_dir images/combined
 ```
 
 ### Split Operation
