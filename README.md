@@ -73,5 +73,22 @@ python preprocessing/process.py --input_dir images/resized --b_dir images/edges 
 python preprocessing/split.py --dir images/combined
 ```
 
-TODO
-Write stuff about actually training
+### Training
+Hopefully you have a GPU because if you train on CPU you will definitely be waiting for a bit.
+```bash
+python pix2pix.py --mode train --output_dir s2d_train --max_epochs 200 --input_dir s2d/train --which_direction BtoA --ngf 32 --ndf 32
+```
+
+Maybe try changing `--ngf 32` and `--ndf32` to 64 to see how well it does, but it takes more computation
+
+If you have Docker installed, you can use the Docker image to train without having to install the correct version of Tensorflow
+
+```bash
+# Train the model
+python dockrun.py python pix2pix.py \
+      --mode train \
+      --output_dir s2d_train \
+      --max_epochs 200 \
+      --input_dir s2d/train \
+      --which_direction BtoA
+```
