@@ -41,9 +41,21 @@ pip3 install -r requirements.txt
 
 Warning: Python version must be at max 3.6! I spent too much time trying to do with Python 3.8 `D:`
 
-While I did it manually with Conda, you could probably try this after creating a virtual environment
+If you have conda installed, you can also try this
+1. Create virtual environment named sketch2drawings
 ```bash
-conda install --file requirements.txt
+conda create --name sketch2drawings
+```
+
+2. Activate conda environment
+```bash
+conda activate sketch2drawings
+```
+
+3. Install OpenCV and Tensorflow v1.4.1 (since numpy is already installed)
+```bash
+conda install opencv
+pip install tensorflow==1.4.1
 ```
 
 ### Resizing Operation
@@ -73,5 +85,22 @@ python preprocessing/process.py --input_dir images/resized --b_dir images/edges 
 python preprocessing/split.py --dir images/combined
 ```
 
-TODO
-Write stuff about actually training
+### Training
+Hopefully you have a GPU because if you train on CPU you will definitely be waiting for a bit.
+```bash
+python pix2pix.py --mode train --output_dir s2d_train --max_epochs 200 --input_dir s2d/train --which_direction BtoA --ngf 32 --ndf 32
+```
+
+Maybe try changing `--ngf 32` and `--ndf32` to 64 to see how well it does, but it takes more computation
+
+If you have Docker installed, you can use the Docker image to train without having to install the correct version of Tensorflow
+
+```bash
+# Train the model
+python dockrun.py python pix2pix.py \
+      --mode train \
+      --output_dir s2d_train \
+      --max_epochs 200 \
+      --input_dir s2d/train \
+      --which_direction BtoA
+```
