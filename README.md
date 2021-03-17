@@ -76,11 +76,15 @@ python edge_detection.py
 ```
 
 ### Combine Operation
+Navigate back to the root directory with `cd ..`. Now run the combine operation with
 ```bash
 python preprocessing/process.py --input_dir images/resized --b_dir images/edges --operation combine --output_dir images/combined
 ```
 
+This operation took me about 30 minutes to run. The script will skip over files that already exist, so you can pause the operation and resume later.
+
 ### Split Operation
+Generate train/validation splits
 ```bash
 python preprocessing/split.py --dir images/combined
 ```
@@ -96,7 +100,7 @@ Maybe try changing `--ngf 32` and `--ndf32` to 64 to see how well it does, but i
 If you have Docker installed, you can use the Docker image to train without having to install the correct version of Tensorflow
 
 ```bash
-# Train the model
+# Train the model with docker
 python dockrun.py python pix2pix.py \
       --mode train \
       --output_dir s2d_train \
