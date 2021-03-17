@@ -41,9 +41,21 @@ pip3 install -r requirements.txt
 
 Warning: Python version must be at max 3.6! I spent too much time trying to do with Python 3.8 `D:`
 
-While I did it manually with Conda, you could probably try this after creating a virtual environment
+If you have conda installed, you can also try this
+1. Create virtual environment named sketch2drawings
 ```bash
-conda install --file requirements.txt
+conda create --name sketch2drawings
+```
+
+2. Activate conda environment
+```bash
+conda activate sketch2drawings
+```
+
+3. Install OpenCV and Tensorflow v1.4.1 (since numpy is already installed)
+```bash
+conda install opencv
+pip install tensorflow==1.4.1
 ```
 
 ### Resizing Operation
