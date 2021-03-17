@@ -84,7 +84,7 @@ def combine(src, src_path):
 
     # find corresponding file in b_dir, could have a different extension
     basename, _ = os.path.splitext(os.path.basename(src_path))
-    for ext in [".png", ".jpg"]:
+    for ext in [".png", ".jpg", ".jpeg"]:
         sibling_path = os.path.join(a.b_dir, basename + ext)
         print(sibling_path)
         if os.path.exists(sibling_path):
@@ -97,6 +97,9 @@ def combine(src, src_path):
     height, width, _ = src.shape
     if height != sibling.shape[0] or width != sibling.shape[1]:
         raise Exception("differing sizes")
+    
+    print("src shape:", src.shape)
+    print("sibling shape:", sibling.shape)
 
     # convert both images to RGB if necessary
     if src.shape[2] == 1:
@@ -111,6 +114,12 @@ def combine(src, src_path):
 
     if sibling.shape[2] == 4:
         sibling = sibling[:, :, :3]
+
+    if src.shape[2] == 2:
+        src = im.grayscale_to_rgb(images=src[:,:,0:1])
+        
+    if sibling.shape[2] == 2:
+        sibling= im.grayscale_to_rgb(images=sibling[:,:,0:1])
 
     return np.concatenate([src, sibling], axis=1)
 
