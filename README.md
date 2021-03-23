@@ -44,7 +44,7 @@ Warning: Python version must be at max 3.6! I spent too much time trying to do w
 If you have conda installed, you can also try this
 1. Create virtual environment named sketch2drawings
 ```bash
-conda create --name sketch2drawings
+conda create -n "sketch2drawings" python=3.3.0
 ```
 
 2. Activate conda environment
@@ -54,7 +54,7 @@ conda activate sketch2drawings
 
 3. Install OpenCV and Tensorflow v1.4.1 (since numpy is already installed)
 ```bash
-conda install opencv
+conda install opencv-python
 pip install tensorflow==1.4.1
 ```
 
