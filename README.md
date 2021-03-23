@@ -44,7 +44,7 @@ Warning: Python version must be at max 3.6! I spent too much time trying to do w
 If you have conda installed, you can also try this
 1. Create virtual environment named sketch2drawings
 ```bash
-conda create -n "sketch2drawings" python=3.3.0
+conda create -n "sketch2drawings" python=3.6.0
 ```
 
 2. Activate conda environment
