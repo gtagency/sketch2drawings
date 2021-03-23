@@ -92,7 +92,7 @@ python preprocessing/split.py --dir images/combined
 ### Training
 Hopefully you have a GPU because if you train on CPU you will definitely be waiting for a bit.
 ```bash
-python pix2pix.py --mode train --output_dir s2d_train --max_epochs 200 --input_dir s2d/train --which_direction BtoA --ngf 32 --ndf 32
+python pix2pix.py --mode train --output_dir s2d_train --max_epochs 200 --input_dir images/combined/train --which_direction BtoA --ngf 32 --ndf 32
 ```
 
 Maybe try changing `--ngf 32` and `--ndf32` to 64 to see how well it does, but it takes more computation
@@ -105,6 +105,6 @@ python dockrun.py python pix2pix.py \
       --mode train \
       --output_dir s2d_train \
       --max_epochs 200 \
-      --input_dir s2d/train \
+      --input_dir images/combined/train \
       --which_direction BtoA
 ```
