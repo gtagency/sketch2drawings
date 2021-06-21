@@ -130,3 +130,8 @@ python dockrun.py python pix2pix.py \
       --input_dir images/combined/train \
       --which_direction BtoA
 ```
+
+### TODO
+- [x] Setup code on new server
+- [ ] Train
+- [ ] Fix code to delete images after use
